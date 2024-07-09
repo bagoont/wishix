@@ -1,2 +1,2 @@
 # wishix
-🎁 Self-hosted wish-list.
+🚧 *Work in progress* 🚧
