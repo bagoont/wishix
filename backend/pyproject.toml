@@ -1,0 +1,74 @@
+[tool.poetry]
+name = "wishix"
+version = "0.1.0"
+description = ""
+authors = ["blvd <blvd@bagoont.ru>"]
+license = "MIT"
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pydantic-settings = { git = "https://github.com/pydantic/pydantic-settings.git" }
+sqlalchemy = "^2.0.35"
+asyncpg = "^0.29.0"
+fastapi = "^0.111.1"
+alembic = "^1.13.3"
+bcrypt = "^4.2.0"
+sqladmin = "^0.18.0"
+pyjwt = "^2.9.0"
+tenacity = "^9.0.0"
+redis = "^5.1.0"
+cashews = "^7.3.1"
+boto3 = "^1.35.32"
+jinja2 = "^3.1.4"
+emails = "^0.6"
+aiosqlite = "^0.20.0"
+
+[tool.poetry.group.dev.dependencies]
+pyright = "^1.1.382.post1"
+ruff = "^0.5.7"
+
+[tool.poetry.group.tests.dependencies]
+pytest = "^8.3.3"
+pytest-asyncio = "^0.24.0"
+coverage = "^7.6.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 99
+extend-exclude = [
+  "logs",
+  "migrations",
+]
+lint.select = [
+  "ALL",
+]
+lint.ignore = [
+  "ANN101",
+  "ANN102",
+  "ANN401",
+  "D105",
+  "D107",
+  "D203",
+  "D213",
+  "D401",
+  "RUF100",
+  "TD003",
+]
+lint.extend-per-file-ignores."tests/*.py" = [
+  "ANN401",
+  "S101",
+  "S311",
+]
+lint.isort.known-local-folder = [
+  "app",
+]
+lint.isort.no-lines-before = [
+  "future",
+  "standard-library",
+]
